@@ -1,45 +1,51 @@
 # Quiz CLI
 
-An interactive command-line quiz game for learning JavaScript, Node.js, and general programming basics. It runs in the terminal and gives instant feedback after each answer.
-
-## Overview
-
-Quiz CLI is a beginner-friendly Node.js app that asks multiple-choice questions from a few learning categories. It is useful for quick practice, self-testing, and exploring basic JavaScript and Node.js concepts in an interactive way.
-
-The app includes:
-- A simple terminal menu
-- Randomized quiz questions
-- Immediate answer feedback
-- Explanations for each question
-- A final score summary with review of missed questions
+A terminal-based quiz application for practicing JavaScript, Node.js, and general programming fundamentals. It runs entirely in the command line, guides the user through category and question selection, and provides immediate feedback, explanations, and a final score summary.
 
 ## Features
 
-- Choose from multiple quiz categories
-- Select how many questions to answer
-- See progress while taking the quiz
-- Get right/wrong feedback after each question
-- Review incorrect answers at the end
+- Category selection from:
+  - JavaScript Basics
+  - Node.js Fundamentals
+  - General Programming
+- Customizable question count
+- Progress display during the quiz
+- Right/wrong answer feedback
+- Explanations shown after each question
+- Final score summary
+- Review of missed questions
+- Terminal-friendly color output
 
-## Installation
+## Project Structure
 
-1. **Install Node.js 18 or newer**
-   - The project uses modern ES Modules and requires Node.js `>=18.0.0`.
+```text
+README.md
+test-app/
+  data/questions.json   → quiz questions and categories
+  index.js              → CLI entry point
+  package.json          → project metadata and scripts
+  src/colors.js         → ANSI color helpers
+  src/input.js          → terminal prompt helpers
+  src/quiz.js           → quiz logic, scoring, and results
+```
 
-2. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd test-app
-   ```
+## Prerequisites
 
-3. **Open the project folder**
-   - Make sure you are inside the `test-app` directory where `package.json` is located.
+- Node.js 18 or later
+- No external npm dependencies are required
 
-4. **Install dependencies**
-   - This project does not use any external npm packages, so there is nothing extra to install.
-   - You can still run `npm install` if you want npm to create a lock file locally.
+## Setup
 
-## Usage
+Clone the repository and move into the application directory:
+
+```bash
+git clone https://github.com/mazalovepam/test-app.git
+cd test-app/test-app
+```
+
+Because the project has no external dependencies, there is no install step beyond having Node.js available.
+
+## Running the Project
 
 Start the quiz with:
 
@@ -47,74 +53,37 @@ Start the quiz with:
 npm start
 ```
 
-Or run it directly with:
+Or run the entry point directly:
 
 ```bash
 node index.js
 ```
 
-### How it works
+## How It Works
 
-1. Start the app.
-2. Pick a quiz category.
-3. Choose how many questions to answer.
-4. Enter the number of your answer when prompted.
-5. Read the explanation and score at the end.
-6. Choose whether to play again.
+1. The CLI starts and loads quiz data from `data/questions.json`.
+2. You choose a category.
+3. You select how many questions to answer.
+4. The quiz runs question by question, showing progress and immediate feedback.
+5. After each answer, the app displays the correct result and explanation.
+6. At the end, you see your final score and a review of missed questions.
+7. You can choose to play again.
 
-### Example interaction
+## Usage
 
-```text
-Choose a category:
-1. JavaScript Basics
-2. Node.js Fundamentals
-3. General Programming
+Follow the prompts in the terminal:
 
-Your choice (enter number): 1
+- Select a category
+- Choose the number of questions
+- Answer each question by entering the option number
+- Review the final summary when the quiz ends
 
-How many questions?
-1. All questions
-2. 3 questions
-3. 5 questions
+## Additional Notes
 
-Your choice (enter number): 2
+- The available quiz content is defined in `data/questions.json`.
+- The application is implemented as an ES module project.
+- A test script is defined in `package.json` and can be run with:
+
+```bash
+npm test
 ```
-
-## Project Structure
-
-```text
-README.md
-index.js
-package.json
-data/questions.json
-src/colors.js
-src/input.js
-src/quiz.js
-```
-
-### File roles
-
-- `index.js` - Main entry point that starts the quiz and handles the app flow.
-- `data/questions.json` - Stores all quiz categories, questions, options, answers, and explanations.
-- `src/input.js` - Handles terminal input such as menus, prompts, and confirmations.
-- `src/quiz.js` - Contains the quiz logic, scoring, progress display, and results screen.
-- `src/colors.js` - Provides terminal color helpers for better-looking output.
-- `package.json` - Project metadata, scripts, and Node.js version requirement.
-
-## Requirements
-
-- Node.js 18 or newer
-- A terminal or command prompt
-- No external npm dependencies
-
-## Notes / Limitations
-
-- This is a terminal-only application. It does not have a web interface.
-- Questions are loaded from `data/questions.json`, so the quiz content is fixed unless you edit that file.
-- The quiz asks questions in a shuffled order, so the order may change each time you play.
-- The available question count options depend on how many questions exist in the selected category.
-- The `npm test` script exists in `package.json`, but no test files are included in the current codebase.
-
-## License
-
-This project is licensed under the MIT License, as indicated in `package.json`.
